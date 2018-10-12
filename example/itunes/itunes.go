@@ -7,9 +7,9 @@ import (
 	"os"
 	"strings"
 
-	ole "github.com/go-ole/go-ole"
-	"github.com/go-ole/go-ole/oleutil"
 	"github.com/gonuts/commander"
+	ole "github.com/lkarlslund/go-ole"
+	"github.com/lkarlslund/go-ole/oleutil"
 )
 
 func iTunes() *ole.IDispatch {

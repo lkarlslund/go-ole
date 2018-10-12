@@ -5,8 +5,8 @@ package main
 import (
 	"time"
 
-	ole "github.com/go-ole/go-ole"
-	"github.com/go-ole/go-ole/oleutil"
+	ole "github.com/lkarlslund/go-ole"
+	"github.com/lkarlslund/go-ole/oleutil"
 )
 
 func main() {
