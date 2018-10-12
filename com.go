@@ -3,7 +3,6 @@
 package ole
 
 import (
-	"encoding/binary"
 	"errors"
 	"syscall"
 	"time"
@@ -346,11 +345,13 @@ func DispatchMessage(msg *Msg) (ret int32) {
 	return
 }
 
+const sixtyfour = uint64(^uint(0)) == ^uint64(0)
+
 // GetVariantDate converts COM Variant Time value to Go time.Time.
 func GetVariantDate(value uint64) (time.Time, error) {
 	var st syscall.Systemtime
 	var r uintptr
-	if binary.Size(r) == 4 {
+	if !sixtyfour {
 		// 32-bit
 		lo := uintptr(value)
 		hi := uintptr(value >> 32)
