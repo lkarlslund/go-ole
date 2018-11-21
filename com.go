@@ -355,7 +355,7 @@ func GetVariantDate(value uint64) (time.Time, error) {
 		// 32-bit
 		lo := uintptr(value)
 		hi := uintptr(value >> 32)
-		r, _, _ = procVariantTimeToSystemTime.Call(uintptr(hi), uintptr(lo), uintptr(unsafe.Pointer(&st)))
+		r, _, _ = procVariantTimeToSystemTime.Call(uintptr(lo), uintptr(hi), uintptr(unsafe.Pointer(&st)))
 	} else {
 		r, _, _ = procVariantTimeToSystemTime.Call(uintptr(value), uintptr(unsafe.Pointer(&st)))
 	}
